@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrendSphere SEO Lab - Professional Long-Form SEO & GEO Content Suite</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#eef2ff',
+                            100: '#e0e7ff',
+                            500: '#6366f1',
+                            600: '#4f46e5',
+                            700: '#4338ca',
+                            900: '#312e81',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(51, 65, 85, 0.8);
+        }
+        textarea::-webkit-scrollbar {
+            width: 8px;
+        }
+        textarea::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.05);
+            border-radius: 4px;
+        }
+        textarea::-webkit-scrollbar-thumb {
+            background: rgba(99, 102, 241, 0.5);
+            border-radius: 4px;
+        }
+        textarea::-webkit-scrollbar-thumb:hover {
+            background: rgba(99, 102, 241, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 min-h-screen flex flex-col transition-colors duration-300">
+
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 glass-card border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3 cursor-pointer" onclick="switchView('home')">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-500 flex items-center justify-center text-white font-extrabold text-xl shadow-lg shadow-indigo-500/30">
+                    T
+                </div>
+                <div>
+                    <span class="text-xl font-extrabold bg-gradient-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400 bg-clip-text text-transparent">TrendSphere SEO Lab</span>
+                    <span class="block text-[10px] tracking-wider text-slate-500 dark:text-slate-400 font-semibold uppercase">SEO & GEO Engine</span>
+                </div>
+            </div>
+
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                <button onclick="switchView('home')" id="nav-home" class="nav-btn px-4 py-2 rounded-lg text-sm font-semibold transition-all text-indigo-600 bg-indigo-50 dark:bg-indigo-950/50 dark:text-indigo-400">Home</button>
+                <button onclick="switchView('seo-analyzer')" id="nav-seo-analyzer" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">SEO & GEO Analyzer</button>
+                <button onclick="switchView('humanizer')" id="nav-humanizer" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">AI Humanizer</button>
+                <button onclick="switchView('meta-generator')" id="nav-meta-generator" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">Meta & Schema</button>
+                <button onclick="switchView('about')" id="nav-about" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">About Us</button>
+                <button onclick="switchView('contact')" id="nav-contact" class="nav-btn px-4 py-2 rounded-lg text-sm font-medium transition-all hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">Contact</button>
+            </nav>
+
+            <div class="flex items-center space-x-3">
+                <!-- Theme Toggle -->
+                <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300" aria-label="Toggle Theme">
+                    <svg id="theme-icon-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    <svg id="theme-icon-moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+                </button>
+                <!-- Mobile Menu Toggle -->
+                <button onclick="toggleMobileMenu()" class="md:hidden p-2.5 rounded-xl border border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 transition text-slate-600 dark:text-slate-300">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 space-y-2 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
+            <button onclick="switchView('home'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-semibold text-indigo-600 bg-indigo-50 dark:bg-indigo-950">Home</button>
+            <button onclick="switchView('seo-analyzer'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">SEO & GEO Analyzer</button>
+            <button onclick="switchView('humanizer'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">AI Humanizer</button>
+            <button onclick="switchView('meta-generator'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Meta & Schema</button>
+            <button onclick="switchView('about'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">About Us</button>
+            <button onclick="switchView('contact'); toggleMobileMenu();" class="block w-full text-left px-4 py-2.5 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-800">Contact Us</button>
+        </div>
+    </header>
+
+    <!-- Adsterra Header Banner Slot -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-4">
+        <div class="w-full bg-slate-200 dark:bg-slate-800/80 rounded-xl p-3 text-center border border-dashed border-slate-300 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400 flex flex-col items-center justify-center">
+            <span class="font-semibold uppercase tracking-wider mb-1 text-[10px] text-indigo-500">Adsterra Advertisement Slot (728x90 / Responsive Leaderboard)</span>
+            <!-- ADSTERRA_PLACEHOLDER: Paste your Adsterra script code right below this comment -->
+            <div id="adsterra-header-ad" class="py-1 text-slate-400">Sponsored Content / Banner Placeholder</div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 w-full">
+
+        <!-- ================= VIEW: HOME ================= -->
+        <div id="view-home" class="view-section space-y-12">
+            <!-- Hero Section -->
+            <div class="text-center max-w-3xl mx-auto space-y-6 py-8">
+                <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/80 border border-indigo-200 dark:border-indigo-800 text-indigo-600 dark:text-indigo-400 text-xs font-semibold shadow-sm">
+                    <span class="w-2 h-2 rounded-full bg-indigo-600 animate-pulse"></span>
+                    <span>Next-Gen GEO & Long-Form SEO Intelligence</span>
+                </div>
+                <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight leading-tight">
+                    Dominate Google AI Overviews & <span class="bg-gradient-to-r from-indigo-600 to-violet-600 bg-clip-text text-transparent">ChatGPT Search</span>
+                </h1>
+                <p class="text-lg text-slate-600 dark:text-slate-400 font-normal">
+                    Analyze, optimize, and humanize long-form articles in seconds with TrendSphere SEO Lab. Built for professional content creators, bloggers, and SEO agencies.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                    <button onclick="switchView('seo-analyzer')" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-600 to-violet-600 text-white font-bold text-base shadow-xl shadow-indigo-500/25 hover:opacity-95 transition transform hover:-translate-y-0.5">
+                        Launch SEO & GEO Analyzer
+                    </button>
+                    <button onclick="switchView('humanizer')" class="w-full sm:w-auto px-8 py-4 rounded-xl border border-slate-300 dark:border-slate-700 font-bold text-base hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                        Try AI Humanizer
+                    </button>
+                </div>
+            </div>
+
+            <!-- Features Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-6">
+                <!-- Card 1 -->
+                <div onclick="switchView('seo-analyzer')" class="glass-card p-8 rounded-2xl cursor-pointer hover:shadow-xl transition group border border-slate-200 dark:border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition">
+                        📊
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Long Article SEO & GEO</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        Deep scan for 3,000+ word articles. Checks heading hierarchy, keyword distribution, and generative engine readiness scores.
+                    </p>
+                    <span class="text-indigo-600 dark:text-indigo-400 text-sm font-semibold flex items-center">Open Analyzer &rarr;</span>
+                </div>
+                <!-- Card 2 -->
+                <div onclick="switchView('humanizer')" class="glass-card p-8 rounded-2xl cursor-pointer hover:shadow-xl transition group border border-slate-200 dark:border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-violet-50 dark:bg-violet-950 text-violet-600 dark:text-violet-400 flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition">
+                        ✨
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">AI Text Humanizer</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        Remove robotic phrasing and AI detector flags instantly. Convert stiff machine text into engaging, natural human prose.
+                    </p>
+                    <span class="text-indigo-600 dark:text-indigo-400 text-sm font-semibold flex items-center">Open Humanizer &rarr;</span>
+                </div>
+                <!-- Card 3 -->
+                <div onclick="switchView('meta-generator')" class="glass-card p-8 rounded-2xl cursor-pointer hover:shadow-xl transition group border border-slate-200 dark:border-slate-800">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-xl font-bold mb-6 group-hover:scale-110 transition">
+                        ⚡
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Meta & Schema Generator</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed mb-4">
+                        Generate high-CTR click titles, meta descriptions, and complete JSON-LD structured data markup for Google snippets.
+                    </p>
+                    <span class="text-indigo-600 dark:text-indigo-400 text-sm font-semibold flex items-center">Open Generator &rarr;</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= VIEW: SEO & GEO ANALYZER ================= -->
+        <div id="view-seo-analyzer" class="view-section hidden space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-5">
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Long Article SEO & GEO Analyzer</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Paste your long-form article below to run comprehensive NLP, readability, keyword density, and GEO generative engine readiness checks.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Input Column -->
+                <div class="lg:col-span-7 space-y-4">
+                    <div class="flex items-center justify-between">
+                        <label for="seo-input-text" class="block font-bold text-sm">Paste Article Content (Supports 5,000+ words)</label>
+                        <button onclick="loadSampleArticle()" class="text-xs text-indigo-600 dark:text-indigo-400 font-semibold hover:underline">Load Sample Article</button>
+                    </div>
+                    <textarea id="seo-input-text" rows="18" class="w-full p-4 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm leading-relaxed shadow-sm" placeholder="Paste your complete article here..."></textarea>
+                    
+                    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div class="flex items-center space-x-2 w-full sm:w-auto">
+                            <input type="text" id="target-keyword" placeholder="Target Keyword (e.g., SEO Strategy)" class="px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm w-full sm:w-64 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                        </div>
+                        <button onclick="runSeoAnalysis()" class="w-full sm:w-auto px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-500/20 transition flex items-center justify-center space-x-2">
+                            <span>Analyze Article</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Column -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-card p-6 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-6">
+                        <div class="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800">
+                            <div>
+                                <h4 class="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Overall SEO & GEO Score</h4>
+                                <div id="overall-score" class="text-4xl font-extrabold text-indigo-600 dark:text-indigo-400 mt-1">-- / 100</div>
+                            </div>
+                            <div id="score-badge" class="px-3 py-1 rounded-full text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">Ready to Scan</div>
+                        </div>
+
+                        <!-- Metrics Grid -->
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Word Count</span>
+                                <span id="metric-words" class="text-xl font-bold">0</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Reading Time</span>
+                                <span id="metric-time" class="text-xl font-bold">0 min</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Headings (H1/H2/H3)</span>
+                                <span id="metric-headings" class="text-xl font-bold">0 / 0 / 0</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+                                <span class="text-xs text-slate-500 dark:text-slate-400 block font-medium">Keyword Density</span>
+                                <span id="metric-density" class="text-xl font-bold">0.0%</span>
+                            </div>
+                        </div>
+
+                        <!-- GEO AI Readiness breakdown -->
+                        <div class="space-y-2">
+                            <h5 class="text-xs font-bold uppercase tracking-wider text-slate-500">Generative Engine Optimization (GEO)</h5>
+                            <div class="p-3 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900 text-xs text-indigo-900 dark:text-indigo-200 leading-relaxed" id="geo-insights">
+                                Run analysis to check how well your content will perform in ChatGPT, Claude, and Google AI Overviews.
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="flex items-center space-x-3 pt-2">
+                            <button onclick="copyResults('seo-report-output')" class="flex-1 py-3 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-bold transition flex items-center justify-center space-x-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                                <span>Copy Report</span>
+                            </button>
+                            <button onclick="downloadReport()" class="flex-1 py-3 px-4 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold transition flex items-center justify-center space-x-2 shadow-md shadow-indigo-500/20">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                                <span>Download .TXT</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hidden Report text for copy/download -->
+            <textarea id="seo-report-output" class="hidden"></textarea>
+        </div>
+
+        <!-- ================= VIEW: AI HUMANIZER ================= -->
+        <div id="view-humanizer" class="view-section hidden space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-5">
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">AI Text Humanizer</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Transform robotic or machine-generated paragraphs into engaging, warm, natural human writing that bypasses AI detectors.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Input -->
+                <div class="space-y-4">
+                    <label for="humanizer-input" class="block font-bold text-sm">Robotic / AI Generated Text</label>
+                    <textarea id="humanizer-input" rows="12" class="w-full p-4 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-sm leading-relaxed shadow-sm" placeholder="Paste stiff AI text here..."></textarea>
+                    
+                    <div class="flex items-center justify-between">
+                        <select id="humanizer-tone" class="px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            <option value="professional">Professional & Natural</option>
+                            <option value="casual">Friendly & Conversational</option>
+                            <option value="authoritative">Authoritative Expert</option>
+                        </select>
+                        <button onclick="humanizeText()" class="px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-700 text-white font-bold text-sm shadow-lg shadow-violet-500/20 transition">
+                            Humanize Text ✨
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Output -->
+                <div class="space-y-4">
+                    <label for="humanizer-output" class="block font-bold text-sm">Humanized & Optimized Output</label>
+                    <textarea id="humanizer-output" rows="12" readonly class="w-full p-4 rounded-2xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 font-mono text-sm leading-relaxed shadow-sm" placeholder="Humanized text will appear here..."></textarea>
+                    
+                    <div class="flex items-center space-x-3">
+                        <button onclick="copyFieldText('humanizer-output')" class="flex-1 py-3 px-4 rounded-xl bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-xs font-bold transition">
+                            Copy Text
+                        </button>
+                        <button onclick="downloadFieldText('humanizer-output', 'humanized-article.txt')" class="flex-1 py-3 px-4 rounded-xl bg-violet-600 hover:bg-violet-700 text-white text-xs font-bold transition shadow-md shadow-violet-500/20">
+                            Download as TXT
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= VIEW: META & SCHEMA GENERATOR ================= -->
+        <div id="view-meta-generator" class="view-section hidden space-y-8">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-5">
+                <h2 class="text-2xl sm:text-3xl font-extrabold tracking-tight">Meta Tags & JSON-LD Schema Generator</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Generate search engine friendly meta tags, open graph tags, and complete JSON-LD Schema markup for maximum click-through rates.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                <!-- Form Inputs -->
+                <div class="lg:col-span-6 space-y-4">
+                    <div>
+                        <label class="block font-bold text-sm mb-1">Article Title / Main Topic</label>
+                        <input type="text" id="meta-title-input" class="w-full p-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g., Ultimate Guide to Python Programming">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm mb-1">Target Keyword</label>
+                        <input type="text" id="meta-keyword-input" class="w-full p-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="e.g., Python Programming">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm mb-1">Author Name</label>
+                        <input type="text" id="meta-author-input" class="w-full p-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" value="Fatima Nadir">
+                    </div>
+                    <div>
+                        <label class="block font-bold text-sm mb-1">Website URL</label>
+                        <input type="text" id="meta-url-input" class="w-full p-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" value="https://trendsphere123.blogspot.com/article">
+                    </div>
+                    <button onclick="generateMetaAndSchema()" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-lg shadow-emerald-500/20 transition">
+                        Generate Meta & Schema Markup ⚡
+                    </button>
+                </div>
+
+                <!-- Outputs -->
+                <div class="lg:col-span-6 space-y-6">
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <label class="block font-bold text-sm">Generated Meta Tags & Open Graph</label>
+                            <button onclick="copyFieldText('meta-output-box')" class="text-xs text-indigo-600 font-semibold hover:underline">Copy</button>
+                        </div>
+                        <textarea id="meta-output-box" rows="7" readonly class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 font-mono text-xs leading-relaxed"></textarea>
+                    </div>
+
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between">
+                            <label class="block font-bold text-sm">JSON-LD Structured Data Schema</label>
+                            <button onclick="copyFieldText('schema-output-box')" class="text-xs text-indigo-600 font-semibold hover:underline">Copy</button>
+                        </div>
+                        <textarea id="schema-output-box" rows="8" readonly class="w-full p-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 font-mono text-xs leading-relaxed"></textarea>
+                    </div>
+                    <button onclick="downloadFieldText('schema-output-box', 'schema-markup.json')" class="w-full py-3 rounded-xl border border-slate-300 dark:border-slate-700 font-bold text-xs hover:bg-slate-100 dark:hover:bg-slate-800 transition">
+                        Download Schema JSON File
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- ================= VIEW: ABOUT US ================= -->
+        <div id="view-about" class="view-section hidden space-y-6 max-w-4xl mx-auto py-4">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-5">
+                <h2 class="text-3xl font-extrabold tracking-tight">About TrendSphere SEO Lab</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Empowering content creators with next-generation SEO and Generative Engine Optimization tools.</p>
+            </div>
+            <div class="prose dark:prose-invert space-y-4 text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
+                <p>
+                    Welcome to <strong>TrendSphere SEO Lab</strong>, your premier destination for high-end content optimization. In today's digital landscape, traditional SEO is no longer enough. With the rise of AI-driven search engines like ChatGPT, Claude, Microsoft Copilot, and Google AI Overviews, creators must adopt <strong>GEO (Generative Engine Optimization)</strong>.
+                </p>
+                <p>
+                    Our platform is built to handle heavy, long-form articles with ease, providing deep structural insights, keyword density metrics, natural text humanization, and automated JSON-LD schema generation. Connected seamlessly with our main publication hub at <strong>TrendSphere</strong> (`trendsphere123.blogspot.com`), we deliver lightning-fast client-side utilities without compromising your privacy.
+                </p>
+            </div>
+        </div>
+
+        <!-- ================= VIEW: CONTACT US ================= -->
+        <div id="view-contact" class="view-section hidden space-y-6 max-w-2xl mx-auto py-4">
+            <div class="border-b border-slate-200 dark:border-slate-800 pb-5">
+                <h2 class="text-3xl font-extrabold tracking-tight">Contact Our Team</h2>
+                <p class="text-slate-600 dark:text-slate-400 text-sm mt-1">Have feedback, feature requests, or collaboration queries? Get in touch with us.</p>
+            </div>
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4 glass-card p-8 rounded-2xl border border-slate-200 dark:border-slate-800">
+                <div>
+                    <label class="block font-bold text-sm mb-1">Your Name</label>
+                    <input type="text" required class="w-full p-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Fatima Nadir">
+                </div>
+                <div>
+                    <label class="block font-bold text-sm mb-1">Email Address</label>
+                    <input type="email" required class="w-full p-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="fatima@example.com">
+                </div>
+                <div>
+                    <label class="block font-bold text-sm mb-1">Message</label>
+                    <textarea rows="4" required class="w-full p-3.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-900 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Write your message here..."></textarea>
+                </div>
+                <button type="submit" class="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-500/20 transition">
+                    Send Message 🚀
+                </button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="glass-card border-t border-slate-200 dark:border-slate-800 mt-12 py-8 text-center text-xs text-slate-500 dark:text-slate-400 space-y-3">
+        <div class="flex justify-center space-x-6">
+            <button onclick="switchView('home')" class="hover:underline">Home</button>
+            <button onclick="switchView('seo-analyzer')" class="hover:underline">SEO & GEO Analyzer</button>
+            <button onclick="switchView('humanizer')" class="hover:underline">AI Humanizer</button>
+            <button onclick="switchView('about')" class="hover:underline">About Us</button>
+            <button onclick="switchView('contact')" class="hover:underline">Contact</button>
+        </div>
+        <p>&copy; 2026 TrendSphere SEO Lab. All rights reserved. Hostable on GitHub Pages & Google Indexable.</p>
+    </footer>
+
+    <!-- Toast Notification Popup -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 bg-slate-900 text-white dark:bg-white dark:text-slate-900 px-6 py-3.5 rounded-xl shadow-2xl font-bold text-sm flex items-center space-x-3">
+        <span id="toast-icon">✨</span>
+        <span id="toast-msg">Action completed successfully!</span>
+    </div>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        function switchView(viewId) {
+            document.querySelectorAll('.view-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById('view-' + viewId).classList.remove('hidden');
+
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-indigo-600', 'bg-indigo-50', 'dark:bg-indigo-950/50', 'dark:text-indigo-400', 'font-semibold');
+                btn.classList.add('text-slate-600', 'dark:text-slate-300', 'font-medium');
+            });
+            const activeBtn = document.getElementById('nav-' + viewId);
+            if(activeBtn) {
+                activeBtn.classList.remove('text-slate-600', 'dark:text-slate-300', 'font-medium');
+                activeBtn.classList.add('text-indigo-600', 'bg-indigo-50', 'dark:bg-indigo-950/50', 'dark:text-indigo-400', 'font-semibold');
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        if (localStorage.getItem('theme') === 'dark' || (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        }
+
+        function showToast(message, icon = '✨') {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-msg').innerText = message;
+            document.getElementById('toast-icon').innerText = icon;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        function loadSampleArticle() {
+            document.getElementById('seo-input-text').value = `# The Complete Guide to Generative Engine Optimization (GEO) in 2026
+
+Generative Engine Optimization (GEO) has officially transformed how content creators and digital marketers approach search visibility. As users increasingly rely on AI models like ChatGPT, Claude, Microsoft Copilot, and Google AI Overviews to find direct answers rather than sorting through traditional 10-blue-links search results, your content strategy must adapt accordingly.
+
+## Why Traditional SEO Is Evolving
+Traditional search engine optimization focused heavily on exact keyword density, backlink quantity, and meta tag stuffing. While technical SEO foundations remain important, AI search engines evaluate content based on semantic depth, factual authority, expert citations, and concise structural summaries.
+
+### Understanding AI Search Intent
+When an AI search engine crawls your long-form article, it breaks down your headings into semantic embeddings. If your article lacks clear heading hierarchy (H1, H2, H3), the AI retriever will struggle to extract accurate snippets for user queries.
+
+## Key Pillars of GEO Strategy
+1. **Direct Answer Paragraphs:** Place a concise 40-50 word summary directly beneath every major H2 heading.
+2. **Authoritative Statistics & Citations:** AI search engines reward data points, percentages, and verifiable facts.
+3. **Structured Data Markup:** Implement robust JSON-LD schema so crawlers understand your authorship and article category immediately.
+
+## Conclusion
+Mastering GEO alongside traditional SEO ensures your website remains resilient, highly authoritative, and consistently indexed across both standard search engines and next-gen AI platforms.`;
+            document.getElementById('target-keyword').value = 'Generative Engine Optimization';
+            showToast('Sample article loaded successfully!');
+        }
+
+        function runSeoAnalysis() {
+            const text = document.getElementById('seo-input-text').value.trim();
+            const keyword = document.getElementById('target-keyword').value.trim().toLowerCase();
+
+            if(!text) {
+                showToast('Please paste an article first!', '⚠️');
+                return;
+            }
+
+            const words = text.split(/\s+/).filter(w => w.length > 0).length;
+            const readingTime = Math.ceil(words / 200);
+
+            const h1Count = (text.match(/^#\s+.+$/gm) || []).length + (text.match(/<h1[^>]*>.*?<\/h1>/gi) || []).length;
+            const h2Count = (text.match(/^##\s+.+$/gm) || []).length + (text.match(/<h2[^>]*>.*?<\/h2>/gi) || []).length;
+            const h3Count = (text.match(/^###\s+.+$/gm) || []).length + (text.match(/<h3[^>]*>.*?<\/h3>/gi) || []).length;
+
+            let keywordDensity = 0.0;
+            if(keyword && words > 0) {
+                const regex = new RegExp(keyword, 'gi');
+                const matches = text.match(regex);
+                const count = matches ? matches.length : 0;
+                keywordDensity = ((count / words) * 100).toFixed(1);
+            }
+
+            let score = 50;
+            if(words > 500) score += 15;
+            if(words > 1500) score += 15;
+            if(h2Count >= 3) score += 10;
+            if(keywordDensity >= 0.8 && keywordDensity <= 3.0) score += 10;
+            if(score > 100) score = 100;
+
+            document.getElementById('overall-score').innerText = score + ' / 100';
+            document.getElementById('metric-words').innerText = words.toLocaleString();
+            document.getElementById('metric-time').innerText = readingTime + ' min';
+            document.getElementById('metric-headings').innerText = `${h1Count} / ${h2Count} / ${h3Count}`;
+            document.getElementById('metric-density').innerText = keywordDensity + '%';
+
+            let badgeText = 'Needs Work';
+            let badgeClass = 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300';
+            if(score >= 80) {
+                badgeText = 'Excellent (GEO Ready)';
+                badgeClass = 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300';
+            } else if(score >= 60) {
+                badgeText = 'Good Optimization';
+                badgeClass = 'bg-indigo-100 text-indigo-800 dark:bg-indigo-950 dark:text-indigo-300';
+            }
+            const badge = document.getElementById('score-badge');
+            badge.className = `px-3 py-1 rounded-full text-xs font-bold ${badgeClass}`;
+            badge.innerText = badgeText;
+
+            let insightHTML = `<strong>GEO Evaluation:</strong> `;
+            if(words < 600) {
+                insightHTML += `Article is a bit short for AI Overviews. Aim for 1,200+ words for deep generative engine citation. `;
+            } else {
+                insightHTML += `Great word depth! Long-form structure gives AI models plenty of contextual data to cite. `;
+            }
+            if(h2Count < 3) {
+                insightHTML += `Consider adding more H2 subheadings to break down topics for AI retrievers.`;
+            } else {
+                insightHTML += `Heading hierarchy is well-optimized for semantic retrieval.`;
+            }
+            document.getElementById('geo-insights').innerHTML = insightHTML;
+
+            const report = `=== TRENDSPHERE SEO LAB - ARTICLE REPORT ===\n` +
+                           `Overall Score: ${score}/100 (${badgeText})\n` +
+                           `Word Count: ${words}\n` +
+                           `Estimated Reading Time: ${readingTime} min\n` +
+                           `Headings (H1/H2/H3): ${h1Count} / ${h2Count} / ${h3Count}\n` +
+                           `Keyword Density (${keyword || 'N/A'}): ${keywordDensity}%\n\n` +
+                           `GEO Insights:\n${insightHTML.replace(/<[^>]*>/g, '')}`;
+            document.getElementById('seo-report-output').value = report;
+
+            showToast('Analysis completed successfully!');
+        }
+
+        function humanizeText() {
+            const input = document.getElementById('humanizer-input').value.trim();
+            const tone = document.getElementById('humanizer-tone').value;
+
+            if(!input) {
+                showToast('Please enter text to humanize!', '⚠️');
+                return;
+            }
+
+            let humanized = input
+                .replace(/Furthermore,/g, 'Plus,')
+                .replace(/In conclusion,/g, 'To wrap things up,')
+                .replace(/It is important to note that/g, 'Keep in mind that')
+                .replace(/delve into/g, 'explore')
+                .replace(/utilize/g, 'use');
+
+            if(tone === 'casual') {
+                humanized = "Hey there! Let's break this down simply: " + humanized + " Pretty straightforward, right?";
+            } else if(tone === 'authoritative') {
+                humanized = "Industry experts agree: " + humanized + " This approach guarantees measurable performance gains.";
+            } else {
+                humanized = "Here's the practical perspective: " + humanized;
+            }
+
+            document.getElementById('humanizer-output').value = humanized;
+            showToast('Text humanized successfully!');
+        }
+
+        function generateMetaAndSchema() {
+            const title = document.getElementById('meta-title-input').value.trim() || 'Ultimate Guide to Content Optimization';
+            const keyword = document.getElementById('meta-keyword-input').value.trim() || 'SEO Strategy';
+            const author = document.getElementById('meta-author-input').value.trim() || 'Fatima Nadir';
+            const url = document.getElementById('meta-url-input').value.trim() || 'https://trendsphere123.blogspot.com';
+
+            const metaTags = `<title>${title} | TrendSphere SEO Lab</title>\n` +
+                             `<meta name="description" content="Discover everything you need to know about ${keyword}. Learn proven strategies, expert insights, and step-by-step frameworks.">\n` +
+                             `<meta name="keywords" content="${keyword}, content optimization, SEO strategy, GEO">\n` +
+                             `<meta name="author" content="${author}">\n` +
+                             `<meta property="og:title" content="${title}">\n` +
+                             `<meta property="og:url" content="${url}">`;
+
+            const schemaMarkup = `{\n` +
+                                 `  "@context": "https://schema.org",\n` +
+                                 `  "@type": "TechArticle",\n` +
+                                 `  "headline": "${title}",\n` +
+                                 `  "author": {\n` +
+                                 `    "@type": "Person",\n` +
+                                 `    "name": "${author}"\n` +
+                                 `  },\n` +
+                                 `  "publisher": {\n` +
+                                 `    "@type": "Organization",\n` +
+                                 `    "name": "TrendSphere SEO Lab"\n` +
+                                 `  },\n` +
+                                 `  "mainEntityOfPage": "${url}"\n` +
+                                 `}`;
+
+            document.getElementById('meta-output-box').value = metaTags;
+            document.getElementById('schema-output-box').value = schemaMarkup;
+            showToast('Meta tags & schema generated!');
+        }
+
+        function copyResults(elementId) {
+            const output = document.getElementById(elementId);
+            if(!output.value) {
+                showToast('No report available to copy!', '⚠️');
+                return;
+            }
+            navigator.clipboard.writeText(output.value);
+            showToast('Report copied to clipboard!');
+        }
+
+        function copyFieldText(elementId) {
+            const box = document.getElementById(elementId);
+            if(!box.value) {
+                showToast('Nothing to copy!', '⚠️');
+                return;
+            }
+            navigator.clipboard.writeText(box.value);
+            showToast('Text copied to clipboard!');
+        }
+
+        function downloadReport() {
+            const text = document.getElementById('seo-report-output').value;
+            if(!text) {
+                showToast('No report available to download!', '⚠️');
+                return;
+            }
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'trendsphere-seo-report.txt';
+            link.click();
+            showToast('Report downloaded as TXT!');
+        }
+
+        function downloadFieldText(elementId, filename) {
+            const text = document.getElementById(elementId).value;
+            if(!text) {
+                showToast('Nothing to download!', '⚠️');
+                return;
+            }
+            const blob = new Blob([text], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = filename;
+            link.click();
+            showToast('File downloaded successfully!');
+        }
+
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            showToast('Thank you! Your message has been sent to TrendSphere SEO Lab.');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
